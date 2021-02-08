@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 class TodoApp extends Component {
   render() {
@@ -7,16 +7,21 @@ class TodoApp extends Component {
       <div className="App">
         <Router>
           <>
-            <Route path="/" exact component={LoginComponent} />
-            <Route path="/login" component={LoginComponent} />
-            <Route path="/welcome" component={WelcomeComponent} />
+            <Switch>
+              <Route path="/" exact component={LoginComponent} />
+              <Route path="/login" component={LoginComponent} />
+              <Route path="/welcome" component={WelcomeComponent} />
+              <Route component={ErrorComponent} />
+            </Switch>
           </>
         </Router>
       </div>
     );
   }
 }
-
+function ErrorComponent() {
+  return <div>An Error Occurred. This URL does not exist</div>;
+}
 class WelcomeComponent extends Component {
   render() {
     return <div>Welcome Component</div>;
