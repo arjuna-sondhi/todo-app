@@ -23,7 +23,7 @@ export class LoginComponent extends Component {
     //admin, password
     if (this.state.username === "admin" && this.state.password === "password") {
       //react router history api
-      this.props.history.push(`/welcome/${this.state.username}`);
+      this.props.history.push(`/todos/${this.state.username}`);
     } else {
       this.setState({ hasLoginFailed: true });
       this.setState({ showSuccessMessage: false });
