@@ -45,11 +45,9 @@ class LoginComponent extends Component {
   loginClicked = () => {
     //admin, password
     if (this.state.username === "admin" && this.state.password === "password") {
-      console.log("Successful");
-      this.setState({ showSuccessMessage: true });
-      this.setState({ hasLoginFailed: false });
+      //react router history api
+      this.props.history.push("/welcome");
     } else {
-      console.log("Failed");
       this.setState({ hasLoginFailed: true });
       this.setState({ showSuccessMessage: false });
     }
