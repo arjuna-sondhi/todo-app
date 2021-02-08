@@ -43,35 +43,11 @@ class LoginComponent extends Component {
     // console.log(this.state);
   };
 
-  showInvalidCredentialsMessage = (props) => {
-    if (props.hasLoginFailed) {
-      return <div>Invalid Credentials</div>;
-    }
-    return null;
-  };
-
-  showSuccessfulMessage = (props) => {
-    if (props.showSuccessMessage) {
-      return <div>Successful</div>;
-    }
-    return null;
-  };
-
-  // handlePasswordChange = (event) => {
-  //   console.log(event.target.value);
-  //   this.setState({
-  //     password: event.target.value,
-  //   });
-  // };
   render() {
     return (
       <div>
-        <this.showInvalidCredentialsMessage
-          hasLoginFailed={this.state.hasLoginFailed}
-        />
-        <this.showSuccessfulMessage
-          showSuccessMessage={this.state.showSuccessMessage}
-        />
+        {this.state.hasLoginFailed && <div>Invalid Credentials</div>}
+        {this.state.showSuccessMessage && <div>Successful</div>}
         Username:
         <input
           type="text"
